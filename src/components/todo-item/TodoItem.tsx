@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Todo } from '../types';
+import { Todo } from '../../types';
 
 interface TodoItemProps {
 	item: Todo;
@@ -17,14 +17,20 @@ const TodoItem = ({
 		<View style={styles.todoItem}>
 			<Text style={styles.todoText}>{item.text}</Text>
 			<View style={styles.actions}>
-				<TouchableOpacity onPress={() => handleEditTodo(item.id, item.text)}>
+				<TouchableOpacity
+					testID='edit-btn'
+					onPress={() => handleEditTodo(item.id, item.text)}
+				>
 					<Ionicons
 						name='pencil'
 						size={20}
 						color='blue'
 					/>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => handleDeleteTodo(item.id)}>
+				<TouchableOpacity
+					testID='delete-btn'
+					onPress={() => handleDeleteTodo(item.id)}
+				>
 					<Ionicons
 						name='trash'
 						size={20}

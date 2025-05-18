@@ -7,15 +7,14 @@ import {
 	TextInput,
 	Button,
 	Alert,
-	TouchableOpacity,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Todo } from '../types';
-import { TodoItem } from '../components';
-import { useLocalStorage } from '../hooks';
+import { Todo } from '../../types';
+import { TodoItem } from '../../components';
+import { useAsyncStorage } from '../../hooks';
 
 const HomeScreen = () => {
-	const [todos, setTodos] = useLocalStorage<Todo[]>('todos', []);
+	const [todos, setTodos] = useAsyncStorage<Todo[]>('todos', []);
 	const [input, setInput] = useState('');
 	const [editingId, setEditingId] = useState<string | null>(null);
 
